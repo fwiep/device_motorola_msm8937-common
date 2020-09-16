@@ -352,7 +352,8 @@ PRODUCT_PACKAGES += \
 # Shims
 PRODUCT_PACKAGES += \
     libcutils_shim.vendor \
-    libqsapshim
+    libqsapshim \
+    libmemset_shim
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
