@@ -49,12 +49,6 @@ fi
 # Load wrapped shim
 function blob_fixup() {
     case "${1}" in
-
-    # memset shim
-    vendor/bin/charge_only_mode)
-        patchelf --add-needed libmemset_shim.so "${2}"
-        ;;
-
     lib64/libwfdnative.so)
         patchelf --remove-needed android.hidl.base@1.0.so "${2}"
         ;;
