@@ -188,11 +188,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.light@2.0-service.msm8937
 
-# LineageActions
-ifeq ($(filter ahannah rhannah,$(TARGET_DEVICE)),)
+# MotoActions
 PRODUCT_PACKAGES += \
-    LineageActions
-endif
+    MotoActions
 
 # LiveDisplay
 PRODUCT_PACKAGES += \
