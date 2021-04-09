@@ -163,4 +163,4 @@ WIFI_DRIVER_FW_PATH_STA := "sta"
 WPA_SUPPLICANT_VERSION := VER_0_8_X
 
 # Inherit from the proprietary version
--include vendor/motorola/msm8937-common/BoardConfigCommonVendor.mk
+include vendor/motorola/msm8937-common/BoardConfigVendor.mk
