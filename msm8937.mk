@@ -300,6 +300,7 @@ PRODUCT_PACKAGES += \
 
 # RIL
 PRODUCT_PACKAGES += \
+    CarrierConfigOverlay \
     librmnetctl \
     libsensorndkbridge \
     libxml2 \
