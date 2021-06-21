@@ -131,7 +131,11 @@ TARGET_USES_INTERACTION_BOOST := true
 BOARD_USES_QCOM_HARDWARE := true
 
 # Recovery
+ifeq ($(PRODUCT_FULL_TREBLE_OVERRIDE), true)
+TARGET_RECOVERY_FSTAB := $(COMMON_PATH)/rootdir/etc/fstab_legacy.qcom
+else
 TARGET_RECOVERY_FSTAB := $(COMMON_PATH)/rootdir/etc/fstab.qcom
+endif
 
 # RIL
 TARGET_PROVIDES_QTI_TELEPHONY_JAR := true
