@@ -62,6 +62,7 @@ BUILD_BROKEN_ELF_PREBUILT_PRODUCT_COPY_FILES := true
 
 # APEX
 DEXPREOPT_GENERATE_APEX_IMAGE := true
+OVERRIDE_TARGET_FLATTEN_APEX := true
 
 # Charger
 BACKLIGHT_PATH := /sys/class/leds/lcd-backlight/brightness
