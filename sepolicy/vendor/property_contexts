@@ -19,6 +19,8 @@ ro.vendor.fm. u:object_r:vendor_fm_prop:s0
 ro.build.motfactory u:object_r:vendor_radio_prop:s0
 ro.build.vendorprefix u:object_r:vendor_radio_prop:s0
 ro.fsg-id u:object_r:vendor_radio_prop:s0
+ro.vendor.ril.svlte1x                           u:object_r:vendor_radio_prop:s0
+ro.vendor.ril.svdo                              u:object_r:vendor_radio_prop:s0
 
 # WI-FI
 wifi.active.interface      u:object_r:wifi_hal_prop:s0
