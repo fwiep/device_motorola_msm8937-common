@@ -47,6 +47,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     sys.vendor.shutdown.waittime=500
 
+# App launch prefetching (IORapd)
+PRODUCT_PROPERTY_OVERRIDES += \
+ro.iorapd.enable=false \
+iorapd.perfetto.enable=false \
+iorapd.readahead.enable=false \
+persist.device_config.runtime_native_boot.iorap_readahead_enable=false
+
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
     camera.disable_zsl_mode=1 \
