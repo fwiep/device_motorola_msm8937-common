@@ -46,8 +46,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.audio.service \
     android.hardware.audio@6.0-impl:32 \
-    android.hardware.audio.effect@6.0-impl:32 \
-    android.hardware.bluetooth.audio@2.1-impl:32
+    android.hardware.audio.effect@6.0-impl:32
 
 PRODUCT_COPY_FILES += \
     frameworks/av/services/audiopolicy/config/a2dp_in_audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/a2dp_in_audio_policy_configuration.xml \
@@ -63,10 +62,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/audio/audio_output_policy.conf:$(TARGET_COPY_OUT_VENDOR)/etc/audio_output_policy.conf \
     $(LOCAL_PATH)/audio/audio_policy_configuration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_policy_configuration.xml
 
-# Bluetooth
-PRODUCT_PACKAGES += \
-    libldacBT_bco
-
 # Camera
 PRODUCT_PACKAGES += \
     libbson.vendor \
@@ -81,6 +76,15 @@ PRODUCT_PACKAGES += \
 # CNE
 PRODUCT_PACKAGES += \
     libcnefeatureconfig
+
+# Network
+PRODUCT_PACKAGES += \
+    android.system.net.netd@1.1.vendor
+
+# NeuralNetworks
+PRODUCT_PACKAGES += \
+    android.hardware.neuralnetworks@1.1.vendor \
+    android.hardware.neuralnetworks@1.0.vendor
 
 # Component overrides
 PRODUCT_COPY_FILES += \
@@ -104,13 +108,22 @@ PRODUCT_PACKAGES += \
     android.hardware.memtrack@1.0-impl \
     android.hardware.memtrack@1.0-service \
     vendor.display.config@1.3 \
-    vendor.display.config@1.3.vendor
+    vendor.display.config@1.3.vendor \
+    android.frameworks.displayservice@1.0.vendor \
+    android.frameworks.sensorservice@1.0.vendor
 
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm@1.0-impl:64 \
     android.hardware.drm@1.0-service \
+    android.hardware.drm@1.3.vendor \
     android.hardware.drm@1.4-service.clearkey
+
+# Bluetooth
+PRODUCT_PACKAGES += \
+    android.hardware.bluetooth.audio@2.1-impl:32 \
+    android.hardware.bluetooth@1.0.vendor \
+    libldacBT_bco
 
 # Filesystem
 PRODUCT_PACKAGES += \
@@ -118,13 +131,19 @@ PRODUCT_PACKAGES += \
 
 # Fingerprint
 PRODUCT_PACKAGES += \
-    android.hardware.biometrics.fingerprint@2.1
+    android.hardware.biometrics.fingerprint@2.1.vendor
+
+# Gatekeeper
+PRODUCT_PACKAGES += \
+    android.hardware.gatekeeper@1.0.vendor
 
 # GPS
 PRODUCT_PACKAGES += \
     android.hardware.gnss@2.1-impl-qti:64 \
     android.hardware.gnss@2.1-service-qti \
     libavservices_minijail.vendor \
+    android.hardware.gnss@2.1.vendor \
+    android.hardware.gnss@1.0.vendor \
     libbatching \
     libgeofencing \
     libgnss \
@@ -168,6 +187,12 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     ipacm \
     IPACM_cfg.xml
+
+# Keymaster
+PRODUCT_PACKAGES += \
+    android.hardware.keymaster@3.0-service-qti.rc \
+    android.hardware.keymaster@3.0-service \
+    android.hardware.keymaster@3.0.vendor
 
 # IRQ balance
 PRODUCT_COPY_FILES += \
@@ -313,6 +338,12 @@ PRODUCT_PACKAGES += \
     qti_telephony_hidl_wrapper.xml \
     qti-telephony-utils \
     qti_telephony_utils.xml
+
+PRODUCT_PACKAGES += \
+    android.hardware.radio@1.5.vendor \
+    android.hardware.radio.config@1.2.vendor \
+    android.hardware.radio.deprecated@1.0.vendor \
+    android.hardware.secure_element@1.2.vendor
 
 # Ramdisk
 PRODUCT_PACKAGES += \
