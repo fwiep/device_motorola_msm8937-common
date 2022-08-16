@@ -67,9 +67,6 @@ DEXPREOPT_GENERATE_APEX_IMAGE := true
 BACKLIGHT_PATH := /sys/class/leds/lcd-backlight/brightness
 BOARD_NO_CHARGER_LED := true
 
-# DRM
-TARGET_ENABLE_MEDIADRM_64 := true
-
 # FM
 BOARD_HAVE_QCOM_FM := true
 TARGET_QCOM_NO_FM_FIRMWARE := true
