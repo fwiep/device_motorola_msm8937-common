@@ -67,7 +67,7 @@ PRODUCT_COPY_FILES += \
 # Camera
 PRODUCT_PACKAGES += \
     libbson.vendor \
-    GCamGo \
+    CamX \
     libstdc++.vendor \
     libwui
 
