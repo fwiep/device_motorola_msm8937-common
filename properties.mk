@@ -39,6 +39,18 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.audio.calfile5=/vendor/etc/acdbdata/Headset_cal.acdb \
     persist.vendor.audio.calfile6=/vendor/etc/acdbdata/Speaker_cal.acdb
 
+# ART
+PRODUCT_PROPERTY_OVERRIDES += \
+    dalvik.vm.boot-dex2oat-cpu-set=0,1,2,3,4,5,6,7 \
+    dalvik.vm.boot-dex2oat-threads=8 \
+    dalvik.vm.dex2oat-cpu-set=0,1,2,3,4,5,6,7 \
+    dalvik.vm.dex2oat-filter=quicken \
+    dalvik.vm.dex2oat-threads=8 \
+    dalvik.vm.dex2oat64.enabled=true \
+    dalvik.vm.image-dex2oat-cpu-set=0,1,2,3,4,5,6,7 \
+    dalvik.vm.image-dex2oat-filter=quicken \
+    dalvik.vm.image-dex2oat-threads=8
+
 # Bluetooth
 PRODUCT_PROPERTY_OVERRIDES += \
     vendor.qcom.bluetooth.soc=smd
@@ -62,19 +74,19 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     persist.vendor.cne.feature=1
 
-# core control
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.qti.core_ctl_min_cpu=2 \
-    ro.vendor.qti.core_ctl_max_cpu=4
-
 # Dalvik
 PRODUCT_PROPERTY_OVERRIDES += \
-    dalvik.vm.heapstartsize=16m \
-    dalvik.vm.heapgrowthlimit=256m \
+    dalvik.vm.heapstartsize=8m \
+    dalvik.vm.heapgrowthlimit=192m \
     dalvik.vm.heapsize=512m \
     dalvik.vm.heaptargetutilization=0.75 \
-    dalvik.vm.heapminfree=4m \
-    dalvik.vm.heapmaxfree=8m
+    dalvik.vm.heapminfree=512k \
+    dalvik.vm.heapmaxfree=8m \
+    dalvik.vm.dexopt-flags=o=y,m=y,v=n \
+    dalvik.vm.execution-mode=int:jit \
+    dalvik.vm.verify-bytecode=true \
+    dalvik.vm.jmiopts=forcecopy \
+    persist.sys.dalvik.vm.lib=libdvm.so
 
 # Debug
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -87,6 +99,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.sf.hwc_set_default_colormode=true \
     ro.vendor.display.cabl=0 \
     vendor.display.enable_default_color_mode=1
+
+# Emmc size
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.emmc_size=32GB
 
 # Fingerprint
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -109,19 +125,23 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.sf.enable_hwc_vds=1 \
     debug.sf.hw=0 \
     debug.sf.latch_unsignaled=1 \
+    debug.sf.disable_client_composition_cache=1 \
     debug.sf.recomputecrop=0 \
+    debug.sf.enable_gl_backpressure=1 \
+    debug.renderengine.backend=skiaglthreaded \
+    debug.hwui.renderer=skiagl \
+    renderthread.skia.reduceopstasksplitting=true \
+    vendor.display.use_smooth_motion=1 \
     dev.pm.dyn_samplingrate=1 \
     persist.hwc.mdpcomp.enable=true \
+    ro.surface_flinger.force_hwc_copy_for_virtual_displays=true \
+    ro.surface_flinger.max_virtual_display_dimension=4096 \
     vendor.display.disable_rotator_split=1 \
     vendor.display.disable_skip_validate=1 \
     vendor.display.perf_hint_window=50 \
-    vendor.gralloc.enable_fb_ubwc=1
-
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    ro.surface_flinger.force_hwc_copy_for_virtual_displays=true \
-    ro.surface_flinger.max_frame_buffer_acquired_buffers=3 \
-    ro.surface_flinger.max_virtual_display_dimension=4096 \
-    ro.surface_flinger.use_color_management=true
+    vendor.gralloc.enable_fb_ubwc=1 \
+    ro.config.avoid_gfx_accel=true \
+    sys.use_fifo_ui=1
 
 # Media
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -133,14 +153,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Memory optimizations
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.qti.sys.fw.bservice_enable=true \
-    ro.vendor.qti.sys.fw.bservice_limit=5 \
-    ro.vendor.qti.sys.fw.bservice_age=5000
+    ro.vendor.qti.sys.fw.bservice_enable=true
 
 # Perf
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.extension_library=libqti-perfd-client.so \
-    ro.vendor.qti.sys.fw.bg_apps_limit=60
+    ro.vendor.extension_library=libqti-perfd-client.so
 
 # QTI
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
@@ -187,7 +204,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
     persist.sys.fflag.override.settings_network_and_internet_v2=true \
     ril.subscription.types=NV,RUIM \
-    telephony.lteOnCdmaDevice=1 \
+    telephony.lteOnCdmaDevice=1
 
 # Sensors
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -199,14 +216,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.sensors.scrn_ortn=false \
     ro.vendor.sensors.cmc=false \
     ro.vendor.sensors.pedometer=false
-
-# Trim properties
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.qti.sys.fw.use_trim_settings=true \
-    ro.vendor.qti.sys.fw.empty_app_percent=50 \
-    ro.vendor.qti.sys.fw.trim_empty_percent=100 \
-    ro.vendor.qti.sys.fw.trim_cache_percent=100 \
-    ro.vendor.qti.sys.fw.trim_enable_memory=2147483648
 
 # USB
 PRODUCT_PROPERTY_OVERRIDES += \
