@@ -481,6 +481,16 @@ vendor/lib64/libqmi_encdec.so
 vendor/lib64/libqmimotext.so
 vendor/lib64/libqmiservices.so
 
+# QMI (shared dependencies) - from LA.UM.9.6.3.r1-04400-89xx.0
+vendor/lib/libpdmapper.so|0994429410af8b8e187f94aa9a4575de81bb7cc4
+vendor/lib64/libpdmapper.so|0367db4990565ccc8f8d6d0b000f10798e21e7a4
+
+# Media - from LA.UM.9.6.2.r1-04200-89xx.0
+system_ext/lib/libmmosal.so|8c7f0a071f84ec2ac9522bf448cb902a3ece2405
+system_ext/lib64/libmmosal.so|ef19a38be8283c87eabe96f74bc8a71881ab1f0a
+vendor/lib/libmmosal.so|e23d6d1b2a035c08ffd7ac72d5241ebff37f0d14
+vendor/lib64/libmmosal.so|e9fdb48163e92b089cea0c397723a8416436c272
+
 # RIL
 -product/app/QtiTelephonyService/QtiTelephonyService.apk:system_ext/app/QtiTelephonyService/QtiTelephonyService.apk
 product/etc/permissions/qcrilhook.xml:system_ext/etc/permissions/qcrilhook.xml
