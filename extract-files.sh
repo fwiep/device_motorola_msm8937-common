@@ -49,6 +49,10 @@ function blob_fixup() {
             "${PATCHELF}" --set-soname keystore.msm8937.so "${2}"
             ;;
 
+	vendor/lib/libmmcamera_ppeiscore.so)
+	    "${PATCHELF}" --add-needed "libui_shim.so" "${2}"
+	    ;;
+
         vendor/lib/libmot_gpu_mapper.so)
             for LIBGUI_SHIM in $(grep -L "libgui_shim_vendor.so" "${2}"); do
                 "${PATCHELF}" --add-needed "libgui_shim_vendor.so" "${LIBGUI_SHIM}"
