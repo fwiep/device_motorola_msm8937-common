@@ -27,8 +27,11 @@ PRODUCT_COPY_FILES += \
 
 # DEX
 PRODUCT_DEXPREOPT_SPEED_APPS += \
+    Lawnchair \
     Settings \
-    SystemUI
+    SystemUI \
+    GcamGo \
+    TrebuchetQuickStep
 
 # APEX
 PRODUCT_COMPRESSED_APEX := false

@@ -49,10 +49,19 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # App launch prefetching (IORapd)
 PRODUCT_PROPERTY_OVERRIDES += \
-ro.iorapd.enable=false \
-iorapd.perfetto.enable=false \
-iorapd.readahead.enable=false \
-persist.device_config.runtime_native_boot.iorap_readahead_enable=false
+    ro.iorapd.enable=false \
+    iorapd.perfetto.enable=false \
+    iorapd.readahead.enable=false \
+    persist.device_config.runtime_native_boot.iorap_readahead_enable=false
+
+# ART
+PRODUCT_PROPERTY_OVERRIDES += \
+    dalvik.vm.dex2oat64.enabled=true \
+    dalvik.vm.boot-dex2oat-threads=8 \
+    dalvik.vm.dex2oat-filter=speed \
+    dalvik.vm.dex2oat-threads=8 \
+    dalvik.vm.image-dex2oat-filter=speed \
+    ro.sys.fw.dex2oat_thread_count=8
 
 # Camera
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -140,7 +149,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.display.disable_rotator_split=1 \
     vendor.display.disable_skip_validate=1 \
     vendor.display.perf_hint_window=50 \
-    vendor.gralloc.enable_fb_ubwc=1
+    vendor.gralloc.enable_fb_ubwc=1 \
+    debug.hwui.renderer=skiagl \
+    renderthread.skia.reduceopstasksplitting=true \
+    vendor.display.use_smooth_motion=1 \
+    vendor.gralloc.enable_fb_ubwc=1 \
+    ro.config.avoid_gfx_accel=true \
+    sys.use_fifo_ui=1
 
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     ro.surface_flinger.force_hwc_copy_for_virtual_displays=true \
@@ -157,14 +172,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Memory optimizations
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.qti.sys.fw.bservice_enable=true \
-    ro.vendor.qti.sys.fw.bservice_limit=5 \
-    ro.vendor.qti.sys.fw.bservice_age=5000
+    ro.vendor.qti.sys.fw.bservice_enable=true
 
 # Perf
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.extension_library=libqti-perfd-client.so \
-    ro.vendor.qti.sys.fw.bg_apps_limit=60 \
     ro.vendor.perf.scroll_opt=true
 
 # QTI
@@ -223,14 +235,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.sensors.scrn_ortn=false \
     ro.vendor.sensors.cmc=false \
     ro.vendor.sensors.pedometer=false
-
-# Trim properties
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.qti.sys.fw.use_trim_settings=true \
-    ro.vendor.qti.sys.fw.empty_app_percent=50 \
-    ro.vendor.qti.sys.fw.trim_empty_percent=100 \
-    ro.vendor.qti.sys.fw.trim_cache_percent=100 \
-    ro.vendor.qti.sys.fw.trim_enable_memory=2147483648
 
 # USB
 PRODUCT_PROPERTY_OVERRIDES += \
