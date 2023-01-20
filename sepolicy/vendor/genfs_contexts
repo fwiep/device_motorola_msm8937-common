@@ -19,3 +19,6 @@ genfscon sysfs /devices/platform/soc/200f000.qcom,spmi/spmi-0/spmi0-00/200f000.q
 
 # Show IRQ
 genfscon sysfs /module/msm_show_resume_irq u:object_r:sysfs_show_irq:s0
+
+# ProcFS
+genfscon proc /sys/vm/dirty_writeback_centisecs                       u:object_r:proc_dirty:s0
