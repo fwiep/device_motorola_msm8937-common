@@ -1,4 +1,9 @@
-Copyright (C) 2019 The LineageOS Project
+# Moved to Codeberg
 
-Device configuration for Motorola MSM8937 Devices
-==================================================
+This project has moved to [Codeberg.org][1].  
+Please update your links.
+
+Kind regards,  
+FWieP
+
+[1]: https://codeberg.org/fwiep/device_motorola_msm8937-common
